@@ -19,6 +19,8 @@ import {
 } from 'lucide-react';
 import Effects from '../display/Effects';
 
+const USE_NEW_PREFERENCES_ICON_DESIGN = true;
+
 const Settings = () => {
   return (
     <div className='flex flex-col gap-10'>
@@ -30,6 +32,7 @@ const Settings = () => {
         title='Behavior'
         fullBorder
         icon={<Joystick size={28} />}
+        useNewIconDesign={USE_NEW_PREFERENCES_ICON_DESIGN}
         level='section'
         defaultOpen={true}
         storageKey='prefs-behavior'
@@ -43,6 +46,7 @@ const Settings = () => {
         title='Display'
         fullBorder
         icon={<Palette size={28} />}
+        useNewIconDesign={USE_NEW_PREFERENCES_ICON_DESIGN}
         level='section'
         defaultOpen={true}
         storageKey='prefs-display'
@@ -52,6 +56,7 @@ const Settings = () => {
           <CollapsibleSection
             title='Themes'
             icon={<Sparkles size={22} />}
+            useNewIconDesign={USE_NEW_PREFERENCES_ICON_DESIGN}
             level='subsection'
             defaultOpen={true}
             storageKey='prefs-themes'
@@ -63,6 +68,7 @@ const Settings = () => {
           <CollapsibleSection
             title='Fonts'
             icon={<CaseSensitive size={28} />}
+            useNewIconDesign={USE_NEW_PREFERENCES_ICON_DESIGN}
             level='subsection'
             defaultOpen={true}
             storageKey='prefs-fonts'
@@ -78,6 +84,7 @@ const Settings = () => {
         title='Effects'
         fullBorder
         icon={<Wand2 size={28} />}
+        useNewIconDesign={USE_NEW_PREFERENCES_ICON_DESIGN}
         level='section'
         defaultOpen={true}
         storageKey='prefs-effects'
@@ -102,6 +109,7 @@ const Settings = () => {
         title='Backup'
         fullBorder
         icon={<Save size={28} />}
+        useNewIconDesign={USE_NEW_PREFERENCES_ICON_DESIGN}
         level='section'
         defaultOpen={true}
         storageKey='prefs-backup'

@@ -16,6 +16,8 @@ interface CollapsibleSectionProps {
   storageKey?: string;
   /** When true, applies a full border to the header instead of just a bottom border */
   fullBorder?: boolean;
+  /** Toggle between original icon style and new badge style */
+  useNewIconDesign?: boolean;
 }
 
 const levelStyles = {
@@ -49,6 +51,7 @@ const CollapsibleSection = ({
   id,
   storageKey,
   fullBorder = false,
+  useNewIconDesign = false,
 }: CollapsibleSectionProps) => {
   const { playClick } = useClick();
 
@@ -114,11 +117,13 @@ const CollapsibleSection = ({
         {icon && (
           <span
             className={clsx(
-              'flex h-11 w-11 items-center justify-center rounded-xl bg-(--card-color) text-(--secondary-color)',
-              'transition-colors duration-300',
-              'group-active:bg-(--background-color)',
-              'group-focus-visible:bg-(--background-color)',
-              'md:group-hover:bg-(--background-color)',
+              useNewIconDesign
+                ? 'flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border-b-6 border-(--secondary-color-accent) bg-(--secondary-color) leading-none text-(--background-color) animate-float [--float-distance:-4px]'
+                : 'flex h-11 w-11 items-center justify-center rounded-xl bg-(--card-color) text-(--secondary-color)',
+              !useNewIconDesign && 'transition-colors duration-300',
+              !useNewIconDesign && 'group-active:bg-(--background-color)',
+              !useNewIconDesign && 'group-focus-visible:bg-(--background-color)',
+              !useNewIconDesign && 'md:group-hover:bg-(--background-color)',
             )}
           >
             {icon}
